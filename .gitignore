@@ -137,3 +137,6 @@ dmypy.json
 **/logs
 
 /poc
+
+# VSCode directories
+.vscode
