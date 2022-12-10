@@ -1,0 +1,51 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=59.6", "wheel"]
+
+[project]
+authors = [ { name="Jeremy Tan" } ]
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10.6"
+]
+description = "JT SSH Client"
+dynamic = ["version"]
+name = "jt_ssh_client"
+requires-python = ">=3.10.6"
+dependencies = [
+    "bcrypt==4.0.1",
+    "cffi==1.15.1",
+    "cryptography==38.0.4",
+    "paramiko==2.12.0",
+    "pycparser==2.21",
+    "PyNaCl==1.5.0",
+    "six==1.16.0"
+]
+
+
+[tool.setuptools.dynamic]
+# dependencies = { file=["requirements.txt"] }
+version = { attr = "jt_ssh_client.VERSION" }
+
+
+[tool.pytest.ini_options]
+addopts = "-vvv --cov-report=term-missing --cov=jt_ssh_client"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 119
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+mypy_path = "src"
+no_implicit_optional = true
+no_implicit_reexport = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
