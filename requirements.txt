@@ -1,4 +1,4 @@
-./redist/jt_snippets-1.0.5+build.1-py3-none-any.whl
+# * Install manually: ./redist/jt_snippets-1.0.5+build.1-py3-none-any.whl
 attrs==22.1.0
 bcrypt==4.0.1
 black==22.10.0
