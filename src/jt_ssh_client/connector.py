@@ -493,7 +493,7 @@ class Connector:
         **kwargs,
     ):
         """
-        Helper meethod to recursively backup contents of document directories
+        Helper method to recursively backup contents of document directories
         on Android devices
 
         Args:
@@ -503,5 +503,19 @@ class Connector:
         """
         for source in sources:
             self._download_file(client, source, destination, recursive=True, **kwargs)
+
+    def create_android_directories(
+        self,
+        paths: list[str] = ["/sdcard/Download/HelloWorld"],
+    ):
+        """
+        Helper method to create directory on Android devices
+
+        Args:
+            path: Collection of directory paths to create
+        """
+        commands = [f"mkdir -p {i}" for i in paths]
+
+        self._execute_commands(commands)
 
     # endregion: Helper methods for Android hosts
